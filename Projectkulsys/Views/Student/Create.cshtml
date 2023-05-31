@@ -1,0 +1,62 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<h4>Student</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Student" asp-action="Create" method="post">
+          
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-lebel">Enter First Name</label>
+                <input asp-for="FirstName" class="form-control"/>
+            </div>
+
+
+            <div class="form-group">
+               
+                <label asp-for="LastName" class="control-lebel">Enter Last Name</label>
+                <input asp-for="LastName" class="form-control" />
+            </div>
+
+
+            <div class="form-group">
+               
+                <label asp-for="Mobilenumber" class="control-lebel">Enter Mobile No</label>
+                <input asp-for="Mobilenumber" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                
+                <label asp-for="Email" class="control-lebel">Enter Email </label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                
+                <label asp-for="Discription" class="control-lebel" >Enter Description</label>
+                <input asp-for="Discription" class="form-control"/>
+            </div>
+
+            <div class="form-group">
+               
+                <label asp-for="DepId" class="control-lebel" >Enter Department Id </label>
+                @Html.LabelFor(model => model.DepId)
+                @Html.DropDownListFor(model => model.DepId, new SelectList(ViewBag.Departments, "Id", "Department"), "Select Department", new { @class = "form-control" })
+           
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                @*<a asp-action="AddStudent" class="btn btn-outline-success">Student List</a>*@
+            </div>
+
+            
+        </form>
+    </div>
+    
+</div>
